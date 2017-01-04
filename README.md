@@ -1,6 +1,6 @@
-## SpaceAce's Trie for Monkey-X
+## SpaceAce's SimpleTrie for Monkey-X
 
-### A simple implementation of a trie data structure
+### An implementation of a trie data structure
 
 **How is trie pronounced?**
 
