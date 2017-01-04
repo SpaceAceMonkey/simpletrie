@@ -65,3 +65,6 @@ Output:
 
 The Trie alphabet defaults to lower-case a-z. The call to SetAlphabet() is just for illustration, here.
 
+The comments in the code have more information on restricting the search to a specific node, and its 
+sub-nodes, searching for prefixes, finding out the symbols and frequency of their appearance in your
+trie, and so on.
