@@ -39,7 +39,11 @@ Simply clone this repository, and merge the modules folder with your Monkey-X mo
 
 To use the tree, you create a TrieNode, and insert data into the node.
 ```
-Trie.SetAlphabet(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"])
+Trie.SetAlphabet([
+	"a", "b", "c", "d", "e", "f", "g", "h", 
+	"i", "j", "k", "l", "m", "n", "o", "p", 
+	"q", "r", "s", "t", "u", "v", "w", "x", 
+	"y", "z"])
 Local dictionary:String[] =["alphabet", "xylophone", "scrub", "photosensitive"]
 Local root:TrieNode = New TrieNode()
 For Local word:String = EachIn(dictionary)
