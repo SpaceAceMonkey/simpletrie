@@ -31,9 +31,14 @@ Function Main:Int()
 	Print "Done in " + (Millisecs() -milliseconds) + " milliseconds."
 	Print "The letters in descending order of frequency are: "
 	frequencyList.Sort()
+	Local totalOccurrences:Int = 0
 	Local s:String
 	For Local frequencyPair:SymbolFrequencyPair = EachIn(frequencyList)
 		s += frequencyPair.symbol
+		totalOccurrences += frequencyPair.occurrences
+	Next
+	For Local frequencyPair:SymbolFrequencyPair = EachIn(frequencyList)
+		Print frequencyPair.symbol + ": " + frequencyPair.occurrences + " (" + (float(frequencyPair.occurrences) / float(totalOccurrences)) + ")"
 	Next
 	Print s
 	Print ""
