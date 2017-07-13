@@ -43,7 +43,7 @@ Class Trie
 		For Local letter:String = EachIn(key.Split(""))
 			index = IndexFromCharacter(letter)
 			If Not (node.children[index])
-				node.children[index] = New TrieNode()
+				node.children[index] = New TrieNode(ALPHABET.Length)
 			EndIf
 			node = node.children[index]
 		Next

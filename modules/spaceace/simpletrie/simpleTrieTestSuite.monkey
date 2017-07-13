@@ -4,6 +4,7 @@ Import mojo
 Import spaceace.combinatorics.cMassPermuter
 Import cTrie
 Import cSymbolFrequencyList
+Import cTrieJson
 
 Function Main:Int()
 	Local date:Int[] = GetDate()
@@ -144,7 +145,8 @@ Function Main:Int()
 	For Local word:String = EachIn(dictionary[ .. Min(20, dictionary.Length - 1)])
 		Trie.Insert(root, word)
 	Next
-	
+
+
 	Local lexicon:StringStack = New StringStack()
 	Trie.GetLexicon(root, lexicon)
 
@@ -154,7 +156,18 @@ Function Main:Int()
 	
 	Print "The alphabet used for all tests above is: "
 	Print Implode(Trie.ALPHABET)
-	
+
+	Print "Serializing Trie to JSON"
+	Local trieAsJson:String = TrieJson.TrieToJson(root)
+	Print "Result: " + trieAsJson
+	Print "Reading from JSON"
+	Local nodeFromJson:TrieNode = TrieJson.FromJson(trieAsJson)
+	Local wordToLookUp:String = lexicon.Get(Rnd(lexicon.Length))
+	Print "Looking up ~q" + wordToLookUp + "~q in Trie created from JSON"
+	Print "Found? " + Int(Trie.Contains(nodeFromJson, wordToLookUp))
+	Print "Looking up nonsense word aiqpcjfbhyfz."
+	Print "Nonsense word found? " + Int(Trie.Contains(nodeFromJson, "aiqpcjfbhyfz"))
+
 	Return 0
 End Function
 
